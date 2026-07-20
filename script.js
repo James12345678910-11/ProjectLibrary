@@ -41,3 +41,14 @@ function addBookToLibrary(book) {
   myLibrary.push(newBook);
   saveLibrary();
 }
+
+function removeBookFromLibrary(bookId){
+  const index = myLibrary.findIndex(book => book.id === bookId);
+  if (index !== -1) {
+    myLibrary.splice(index, 1);
+  }
+}
+
+Book.prototype.toggleRead = function() {
+  this.read = !this.read;
+}
