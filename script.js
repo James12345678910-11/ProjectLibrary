@@ -32,3 +32,12 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+Book.prototype.info = function() {
+  return `${this.title} by ${this.author}, ${this.pages} pages, Read: ${formatBoolean(this.read)}`;
+}
+
+function addBookToLibrary(book) {
+  const newBook = new Book(book.title, book.author, book.pages, book.read);
+  myLibrary.push(newBook);
+  saveLibrary();
+}
