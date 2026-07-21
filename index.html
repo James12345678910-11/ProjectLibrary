@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,17 +8,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>Project Library</h1>
+  </header>
 
-<header>
-  <h1>Project Library</h1>
-</header>
+  <main>
+    <section id="Booklist"></section>
 
-<main>
+    <button id="open-dialog">Add Book</button>
 
-  <div>
-    <button command="show-modal" commandfor="Add book" class="Add book">Add Book</button>
-    <dialog id="Add book">
-      <form method="dialog">
+    <dialog id="add-book">
+      <form id="book-form">
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br><br>
 
@@ -30,20 +31,10 @@
         <label for="read">Read:</label>
         <input type="checkbox" id="read" name="read"><br><br>
 
-        <button type="submit">Add Book</button> 
-    </div>
-
-    <div class="form-actions">  
-      <button type="submit" id="submit-button">Submit</button>
-    </div>
-  </form>
-  <section id="Booklist">
-  </section>
-
-  
-
-  <button commandfor="Add book" command="close">Cancel</button>
-  </dialog>
-</main>
+        <button type="submit">Save Book</button>
+        <button type="button" onclick="document.getElementById('add-book').close()">Cancel</button>
+      </form>
+    </dialog>
+  </main>
 </body>
 </html>

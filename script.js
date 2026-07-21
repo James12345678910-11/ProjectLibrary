@@ -1,12 +1,20 @@
 const myLibrary = [];
 const container = document.getElementById('Booklist');
+const dialog = document.getElementById('add-book');
+const form = document.getElementById('book-form');
+const openDialogBtn = document.getElementById('open-dialog');
 
+// input fields
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const pagesInput = document.getElementById('pages');
+const readInput = document.getElementById('read');
 
 function formatBoolean(value) {
   return value ? "Yes" : "No";
-} //will remove this shit. its not needed
+} 
 
-
+// program logic
 class BookAdd {
 
   constructor(title, author, pages, read) {
@@ -56,7 +64,7 @@ BookAdd.prototype.toggleRead = function() {
 }
   
 
-
+// display logic
 function displayBooks() {
   container.innerHTML = '';
   myLibrary.forEach(book => {
@@ -88,6 +96,7 @@ function displayBooks() {
     bookCard.appendChild(deleteButton);
     container.appendChild(bookCard); 
   });
+
 }
 
 
@@ -97,3 +106,65 @@ BookAdd.addBookToLibrary("Blackflame", "Will Wight", 369, true);
 BookAdd.addBookToLibrary("Mistborn", "Brandon Sanderson", 672, true);
 BookAdd.addBookToLibrary("A Knight of the Seven Kingdoms", "George RR Martin", 368, true);
 displayBooks();
+
+
+// event listeners
+
+container.addEventListener('click', (event) => {
+
+  if (event.target.classList.contains('delete-button')) {
+    const itemId = event.target.dataset.id;
+    const ind = myLibrary.findIndex(book => book.id === itemId);
+    if(ind !== -1) {
+      myLibrary.splice(ind, 1);
+      displayBooks();
+    }
+  }
+
+  if (event.target.classList.contains('update-button')) {
+    const bookId = event.target.dataset.id;
+    const editingBook = myLibrary.find(book => book.id === bookId);
+
+    if (editingBook) {
+      editingBookId = bookId;
+      titleInput.value = editingBook.title;
+      authorInput.value = editingBook.author;
+      pagesInput.value = editingBook.pages;
+      readInput.checked = editingBook.read;
+      dialog.showModal();
+    }
+  }
+});
+
+openDialogBtn.addEventListener('click', () => {
+  editingBookId = null;
+  form.reset();
+  dialog.showModal();
+});
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const title = titleInput.value.trim();
+  const author = authorInput.value.trim();
+  const pages = parseInt(pagesInput.value);
+  const read = readInput.checked;
+
+  if (editingBookId) {
+    const book = myLibrary.find(book => book.id === editingBookId);
+    if (book) {
+      book.title = title;
+      book.author = author;
+      book.pages = pages;
+      book.read = read;
+    }
+
+    editingBookId = null;
+  } else {
+    BookAdd.addBookToLibrary(title, author, pages, read);
+  };
+
+  displayBooks();
+  dialog.close();
+  form.reset();
+});
