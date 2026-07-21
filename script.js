@@ -72,9 +72,6 @@ function displayBooks() {
       pages.textContent = `Pages: ${book.pages}`;
     const read = document.createElement('p');
       read.textContent = `Read: ${formatBoolean(book.read)}`;
-    const addButton = document.createElement('button');
-      addButton.classList.add('add-button');
-      addButton.textContent = 'Add Book';
     const updateButton = document.createElement('button');
       updateButton.classList.add('update-button');
       updateButton.textContent = 'Update Book';
@@ -126,7 +123,7 @@ container.addEventListener('click', (event) => {
       titleInput.value = editingBook.title;
       authorInput.value = editingBook.author;
       pagesInput.value = editingBook.pages;
-      readInput.toggle = editingBook.read;
+      readInput.checked = editingBook.read;
       dialog.showModal();
     }
   }
