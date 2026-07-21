@@ -51,13 +51,7 @@ BookAdd.prototype.info = function() {
   return `${this.title} by ${this.author}, ${this.pages} pages, Read: ${formatBoolean(this.read)}`;
 }
 
-function removeBookFromLibrary(bookId){
-  const index = myLibrary.findIndex(book => book.id === bookId);
-  if (index !== -1) {
-    myLibrary.splice(index, 1);
-    displayBooks();
-  }
-}
+
 
 BookAdd.prototype.toggleRead = function() {
   this.read = !this.read;
@@ -84,9 +78,11 @@ function displayBooks() {
     const updateButton = document.createElement('button');
       updateButton.classList.add('update-button');
       updateButton.textContent = 'Update Book';
+      updateButton.dataset.id = book.id;
     const deleteButton = document.createElement('button');
       deleteButton.classList.add('delete-button');
       deleteButton.textContent = 'Delete Book';
+      deleteButton.dataset.id = book.id;
 
     bookCard.appendChild(title);
     bookCard.appendChild(author);
@@ -130,7 +126,7 @@ container.addEventListener('click', (event) => {
       titleInput.value = editingBook.title;
       authorInput.value = editingBook.author;
       pagesInput.value = editingBook.pages;
-      readInput.checked = editingBook.read;
+      readInput.toggle = editingBook.read;
       dialog.showModal();
     }
   }
