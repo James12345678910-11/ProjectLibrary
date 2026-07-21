@@ -98,6 +98,29 @@ BookAdd.addBookToLibrary("Harry Potter and the Philosophers Stone", "JK Rowling"
 BookAdd.addBookToLibrary("Blackflame", "Will Wight", 369, true);
 BookAdd.addBookToLibrary("Mistborn", "Brandon Sanderson", 672, true);
 BookAdd.addBookToLibrary("A Knight of the Seven Kingdoms", "George RR Martin", 368, true);
+BookAdd.addBookToLibrary("Harry Potter and the Chamber of Secrets", "JK Rowling", 341, true);
+BookAdd.addBookToLibrary("Harry Potter and the Prisoner of Azkaban", "JK Rowling", 435, true);
+BookAdd.addBookToLibrary("Harry Potter and the Goblet of Fire", "JK Rowling", 734, false)
+BookAdd.addBookToLibrary("The Way of Kings", "Brandon Sanderson", 1007, true);
+BookAdd.addBookToLibrary("Words of Radiance", "Brandon Sanderson", 1087, false);
+BookAdd.addBookToLibrary("The Final Empire", "Brandon Sanderson", 541, true);
+BookAdd.addBookToLibrary("Unsouled", "Will Wight", 294, true);
+BookAdd.addBookToLibrary("Soulsmith", "Will Wight", 336, true);
+BookAdd.addBookToLibrary("Ghostwater", "Will Wight", 336, false);
+BookAdd.addBookToLibrary("A Game of Thrones", "George RR Martin", 694, true);
+BookAdd.addBookToLibrary("A Clash of Kings", "George RR Martin", 768, false);
+BookAdd.addBookToLibrary("A Storm of Swords", "George RR Martin", 973, false);
+BookAdd.addBookToLibrary("The Name of the Wind", "Patrick Rothfuss", 662, true);
+BookAdd.addBookToLibrary("The Wise Man's Fear", "Patrick Rothfuss", 994, false);
+BookAdd.addBookToLibrary("The Eye of the World", "Robert Jordan", 814, false);
+BookAdd.addBookToLibrary("The Great Hunt", "Robert Jordan", 705, false);
+BookAdd.addBookToLibrary("The Lies of Locke Lamora", "Scott Lynch", 722, true);
+BookAdd.addBookToLibrary("The Blade Itself", "Joe Abercrombie", 515, false);
+BookAdd.addBookToLibrary("Dune", "Frank Herbert", 688, true);
+BookAdd.addBookToLibrary("Foundation", "Isaac Asimov", 255, false);
+BookAdd.addBookToLibrary("Ender's Game", "Orson Scott Card", 324, true);
+BookAdd.addBookToLibrary("Project Hail Mary", "Andy Weir", 496, true);
+BookAdd.addBookToLibrary("The Martian", "Andy Weir", 387, false);
 displayBooks();
 
 
