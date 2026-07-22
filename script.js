@@ -4,6 +4,8 @@ const dialog = document.getElementById('add-book');
 const form = document.getElementById('book-form');
 const openDialogBtn = document.getElementById('open-dialog');
 
+let editingBookId = null;
+
 // input fields
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
